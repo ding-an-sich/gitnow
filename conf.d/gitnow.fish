@@ -220,13 +220,13 @@ function upstream -d "Gitnow: Commit all changes and push them to remote server"
     push
 end
 
-function feature -d "GitNow: Creates a new Gitflow feature branch from current branch" -a xbranch
+function feat -d "GitNow: Creates a new Gitflow feature branch from current branch" -a xbranch
     if not __gitnow_is_git_repository
-        __gitnow_msg_not_valid_repository "feature"
+        __gitnow_msg_not_valid_repository "feat"
         return
     end
 
-    __gitnow_gitflow_branch "feature" $xbranch
+    __gitnow_gitflow_branch "feat" $xbranch
 end
 
 function hotfix -d "GitNow: Creates a new Gitflow hotfix branch from current branch" -a xbranch
@@ -238,13 +238,22 @@ function hotfix -d "GitNow: Creates a new Gitflow hotfix branch from current bra
     __gitnow_gitflow_branch "hotfix" $xbranch
 end
 
-function bugfix -d "GitNow: Creates a new Gitflow bugfix branch from current branch" -a xbranch
+function fix -d "GitNow: Creates a new Gitflow fix branch from current branch" -a xbranch
     if not __gitnow_is_git_repository
-        __gitnow_msg_not_valid_repository "bugfix"
+        __gitnow_msg_not_valid_repository "fix"
         return
     end
 
-    __gitnow_gitflow_branch "bugfix" $xbranch
+    __gitnow_gitflow_branch "fix" $xbranch
+end
+
+function chore -d "GitNow: Creates a new Gitflow chore branch from current branch" -a xbranch
+    if not __gitnow_is_git_repository
+        __gitnow_msg_not_valid_repository "chore"
+        return
+    end
+
+    __gitnow_gitflow_branch "chore" $xbranch
 end
 
 function release -d "GitNow: Creates a new Gitflow release branch from current branch" -a xbranch
